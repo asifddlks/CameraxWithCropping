@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:id="@+id/constraint"
+        >
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/preview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/viewShutter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.cameraxnid.CircleView
+            android:id="@+id/border_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.6"
+            app:layout_constraintBottom_toBottomOf="@id/preview"
+            app:layout_constraintEnd_toEndOf="@id/preview"
+            app:layout_constraintStart_toStartOf="@id/preview"
+            app:layout_constraintTop_toTopOf="@id/preview" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:alpha="0.4"
+        android:id="@+id/viewShutter"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnFlashOnOf"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_flash_auto"
+            app:layout_constraintTop_toBottomOf="@id/preview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnTakePicture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+        <ImageButton
+        app:layout_constraintTop_toTopOf="@id/viewShutter"
+        android:id="@+id/btnTakePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_take_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--After Image Capture-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintCapture"
+        android:visibility="gone"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/ImgFrontSideOfNid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="16:9"
+            android:background="@drawable/background_border"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="210dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/bg_black_frontsideofnid"
+            android:src="@drawable/ic_cross"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guidelineMiddle" />
+
+        <ImageButton
+            android:id="@+id/okBtn"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_green_frontsideofnid"
+            android:src="@drawable/ic_ok"
+            app:layout_constraintTop_toTopOf="@id/view"
+            android:layout_marginStart="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guidelineMiddle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
